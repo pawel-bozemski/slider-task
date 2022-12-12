@@ -1,7 +1,9 @@
 const glideOptions = {
-  type: "carousel",
+  type: "slider",
   startAt: 0,
+  gap: 20,
   perView: 3,
+  rewind: false,
   breakpoints: {
     900: {
       perView: 2,
@@ -18,9 +20,12 @@ export const init = () => {
     document.querySelectorAll(".glide"),
 
     (el) => {
+
       const slider = new Glide(el, glideOptions).mount();
 
       sliders.push(slider);
+
+
     }
   );
 };

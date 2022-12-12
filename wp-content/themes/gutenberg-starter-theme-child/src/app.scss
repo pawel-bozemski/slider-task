@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Rubik";
-  src: url(../fonts/Rubik-Italic-VariableFont_wght.ttf) format("truetype");
+  font-family: "Rubik", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 }
 
 body {
@@ -10,23 +10,38 @@ body {
 }
 .header {
   .header__logo {
-    padding: 25px 0 25px 375px;
-    @media screen and (max-width: 1200px) {
-      padding: 25px 0;
-      text-align: center;
-    }
+    padding: 23px 25px;
+    max-width: 1200px;
+    margin: auto;
   }
 }
 
 .slider {
-  text-align: center;
-  letter-spacing: 0px;
+  text-align: center;  
+  position: relative;
+  &:not(.last)::after {
+    display: block;
+    content: " ";
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #ff3859;
+    box-shadow: 0px 4px 4px rgba(255, 56, 89, 0.2);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 16px);
+    bottom: -16px;
+    z-index: 999;
+  }
 
   .slider__heading {
     padding-top: 50px;
     font-size: 40px;
     line-height: 52px;
-    margin: 0 auto;
+    margin: 0 auto 5px;
     font-weight: 300;
     font-style: normal;
     max-width: 80%;
@@ -34,7 +49,7 @@ body {
   .slider__subtitle {
     font-size: 20px;
     line-height: 32px;
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
     font-weight: 300;
     font-style: normal;
     max-width: 80%;
@@ -44,78 +59,94 @@ body {
     font-weight: 300;
     line-height: 30px;
     letter-spacing: 0px;
+    margin: 0 auto 25px;
+  }
+  .slider__wrapper {
+    max-width: 1036px;
     margin: 20px auto 0;
-  }
-  .glide__track {
-    margin: 20px 50px 0;
-    padding-bottom: 60px;
     position: relative;
-
-    .glide__slide {
-      min-height: 230px;
-      background-color: #fff;
-      h4 {
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 24px;
-        margin: 35px auto 15px;
-        padding: 0 25px;
-        font-style: normal;
-      }
-      p {
-        font-size: 15px;
-        line-height: 24px;
-        margin: 0 auto;
-        padding: 0 25px;
-        font-style: normal;
-      }
-      img {
-        margin-top: 15px;
-        height: 40px;
-        width: 40px;
-      }
-    }
+    padding-bottom: 60px;
     @media screen and (max-width: 900px) {
-      margin: 0 60px;
+      padding: 0 20px 60px;
+     }
+    .glide__track {
+      width: 100%;
+      .glide__slides {
+        .glide__slide {
+          min-height: 228px;
+          max-height: 228px;
+          overflow-y: auto;
+          background-color: #fff;
+          h4 {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 24px;
+            margin: 35px auto 15px;
+            padding: 0 25px;
+            font-style: normal;
+            color: #2d3236;
+          }
+          p {
+            color: #808080;
+            font-size: 15px;
+            line-height: 24px;
+            margin: 0 auto;
+            padding: 0 25px;
+            font-style: normal;
+          }
+          img {
+            margin-top: 15px;
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+
     }
-  }
-  .glide__arrows {
-    .glide__arrow {
-      box-shadow: 1px 3px 10px #00000017;
-      background: rgba(255, 255, 255, 0.05);
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 50%;
-      cursor: pointer;
-      height: 42px;
-      width: 42px;
-      position: absolute;
-      top: calc(50% + 42px);
-      border: 0;
-      &:hover {
-        border: solid 2px;
+    .glide__arrows {
+      .glide__arrow {
+        background: rgba(255, 255, 255, 0.05);
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 48px;
+        width: 48px;
+        position: absolute;
+        top: calc(50% - 48px);
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        &.glide__arrow--disabled {
+          background: none;
+          @media screen and (max-width: 1180px) {
+            display: none;
+            background: none
+          }
+        }
+        @media screen and (max-width: 900px) {          
+          background: none
+        }
       }
-    }
-    .glide__arrow--left {
-      left: 5px;
-      background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='3 0 17 20'%3E%3Cpath fill='%2328A9E0' d='M14 20c0.128 0 0.256-0.049 0.354-0.146 0.195-0.195 0.195-0.512 0-0.707l-8.646-8.646 8.646-8.646c0.195-0.195 0.195-0.512 0-0.707s-0.512-0.195-0.707 0l-9 9c-0.195 0.195-0.195 0.512 0 0.707l9 9c0.098 0.098 0.226 0.146 0.354 0.146z' /%3E%3C/svg%3E");
-      @media screen and (max-width: 900px) {
-        left: 10px;
-        top: calc(50% + 21px);
+      .glide__arrow--left {
+        left: -64px;
+        @media screen and (max-width: 1180px) {
+          left: 0;
+        }
+        @media screen and (max-width: 900px) {
+          left: 5px;
+        }
       }
-      @media screen and (max-width: 900px) {
-        top: calc(50% + 42px);
-      }
-    }
-    .glide__arrow--right {
-      right: 5px;
-      background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 20'%3E%3Cpath fill='%2328A9E0' d='M5 20c-0.128 0-0.256-0.049-0.354-0.146-0.195-0.195-0.195-0.512 0-0.707l8.646-8.646-8.646-8.646c-0.195-0.195-0.195-0.512 0-0.707s0.512-0.195 0.707 0l9 9c0.195 0.195 0.195 0.512 0 0.707l-9 9c-0.098 0.098-0.226 0.146-0.354 0.146z' /%3E%3C/svg%3E");
-      @media screen and (max-width: 900px) {
-        right: 10px;
-        top: calc(50% + 21px);
-      }
-      @media screen and (max-width: 900px) {
-        top: calc(50% + 42px);
+      .glide__arrow--right {
+        right: -64px;
+        @media screen and (max-width: 1180px) {
+          right: 0;
+        }
+        @media screen and (max-width: 900px) {
+          right: 5px;
+        }
       }
     }
   }

@@ -32,9 +32,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var glideOptions = {
-  type: "carousel",
+  type: "slider",
   startAt: 0,
+  gap: 20,
   perView: 3,
+  rewind: false,
   breakpoints: {
     900: {
       perView: 2
@@ -72,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var module = _blocks_components_js__WEBPACK_IMPORTED_MODULE_0__["default"][key];
     module.init();
   }
+
+  var sliderBlocks = document.querySelectorAll('.glide.slider');
+  sliderBlocks[sliderBlocks.length - 1].classList.add('last');
 });
 
 /***/ }),
